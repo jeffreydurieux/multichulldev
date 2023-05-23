@@ -15,7 +15,7 @@ shinyServer(function(input , output, session){
     if(is.null(file)){
       return(NULL)
     }
-    dat <- read.csv(file = file$datapath, header = T, sep = ",")
+    dat <- read.csv(file = file$datapath, header = T, sep = "\t")
     if(ncol(dat) == 2){
       dat <- cbind("Complexity" = dat[,1], "(mis-) fit" = dat[,2])
       dat <- cbind(model = 1:nrow(dat),dat)
@@ -58,6 +58,7 @@ shinyServer(function(input , output, session){
 
   chullstart <- eventReactive(input$stChull, {
     multichulldev::CHull(data()[,-1],input$bound,input$PercentageFit)
+    #multichulldev::CHull(data(),input$bound,input$PercentageFit)
   })
 
   # start multichull
