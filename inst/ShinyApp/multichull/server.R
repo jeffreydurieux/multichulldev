@@ -29,8 +29,8 @@ shinyServer(function(input , output, session){
     return(dat)
   })
 
-  output$ui <- DT::renderDataTable({
-    DT::datatable(data(), rownames = TRUE, filter = 'top', editable = TRUE)
+  output$ui <- shiny::renderDataTable({
+    shiny::datatable(data(), rownames = TRUE, filter = 'top', editable = TRUE)
     #dat <- cbind(1:nrow(dat), dat)
     #dat
   })
