@@ -3,6 +3,10 @@ CHull.default <-
   function(data, bound = "lower", PercentageFit = 1){
     Error <- 0
 
+    if( !(PercentageFit >= 0 & PercentageFit <=100) ){
+      Stop('PercentageFit should be a number between 0 and 100')
+    }
+
     # Input is a percentage, further computations are treated as proportion (0-1)
     PercentageFit <- PercentageFit / 100
 
@@ -107,7 +111,7 @@ CHull.default <-
         Multi2 <- intersect( which( data[,1]==SelectedSol[2,1] ) , which( data[,2]==SelectedSol[2,2] ) )
         Solution <- data[c(Multi,Multi2),1:2]
       } else {
-        Solution <- data[Multi,1:2]
+        Solution <- data.frame(data[Multi,1:2],st=max(st, na.rm = TRUE))
       }
 
       # OUTPUT

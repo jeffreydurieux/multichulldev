@@ -66,8 +66,6 @@ MultiCHull(data, bound = "lower", PercentageFit = 1, type = "multifit")
 \item{Origdata}{Original dataframe}
 \item{Bound}{Boundary of convex hull that was requested}
 \item{PercentageFit}{Requested proportion of increase in fit of a more complex model}
-
-
 }
 \description{
 Applying the \code{\link{CHull}} function on multiple samples of fit values at once, such as bootstrap samples.
