@@ -1,6 +1,12 @@
 #' @export
 MultiCHull.default <- function(data, bound = "lower", PercentageFit = 1, type = 'multifit'){
     if(type == 'multifit'){
+
+      if(colnames(data)[1] != 'comp'){
+        stop('Check your input data. The first column should consist of complexity values. \n
+             This column should be named "comp"')
+      }
+
       n_Multi <- ncol(data)-1
       n_model <- nrow(data)
       mat <- array(NA,c(n_model,n_Multi))
@@ -54,6 +60,13 @@ MultiCHull.default <- function(data, bound = "lower", PercentageFit = 1, type = 
         class(res) <- 'MultiCHull'
       }
     }else if(type == 'multicom'){
+
+      ex <- tail(colnames(data), n = 1)
+      if( !(ex == 'fit' || ex == 'misfit')){
+        stop('Check your input data. The last column should consist of fit or misfit values. \n
+        This column should be named either "fit" or "misfit" ')
+      }
+
       n_complex <- ncol(data) - 1
 
       chull_res <- list()
