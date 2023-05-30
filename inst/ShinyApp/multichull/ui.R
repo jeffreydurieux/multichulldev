@@ -3,7 +3,7 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
                          windowTitle = "multichull",
 
                          ################ load files ###########
-                         tabPanel("", icon = icon("folder-open-o","fa-2x"),
+                         tabPanel("", icon = icon("folder-open","fa-2x"),
                                   sidebarLayout(
                                     sidebarPanel(
                                       fileInput(inputId = 'loadfile',label = "Select file:",
@@ -34,7 +34,7 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
 
                                     mainPanel(
                                       tabsetPanel(
-                                        tabPanel("Chull",
+                                        tabPanel("CHull",
                                                  radioButtons("bound", label = h4("What does the fit measure indicate?"),
                                                               choices = list("Badness-of-fit" = "lower", "Goodness-of-fit" = "upper"
                                                               ),selected = "lower"),
@@ -47,7 +47,7 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
 
                                         ), #end tabPanel CHull
 
-                                        tabPanel("MultiChull",
+                                        tabPanel("MultiCHull",
                                                  radioButtons("boundM", label = h4("What does the fit measure indicate?"),
                                                               choices = list("Badness-of-fit" = "lower", "Goodness-of-fit" = "upper"
                                                               ),selected = "lower"),
@@ -56,7 +56,7 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
                                                               ),selected = "multifit"),
                                                  numericInput("PercentageFitM",
                                                               label = h4("Required improvement in fit?"),
-                                                              value = 1,min=0,max=1,step=1),
+                                                              value = 1,min=0,max=100,step=1),
                                                  br(),
                                                  actionButton('stMultiChull',label = "Start MultiCHull",
                                                               icon = icon("flash",lib = "glyphicon"))
@@ -71,7 +71,7 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
                          ), #end settings panel
 
                          ############# results panel #########
-                         tabPanel(title = "", icon = icon("bar-chart-o","fa-2x"),
+                         tabPanel(title = "", icon = icon("bar-chart","fa-2x"),
                                   fluidPage(
                                     titlePanel("Results"),
 
@@ -88,20 +88,20 @@ ui <- shinyUI(navbarPage(theme = shinythemes::shinytheme("united"),"multichull",
                                         )#,# end tabPanel plotly
                                         # tabPanel("Plot MultiCHull multiple complexities",
                                         #          pageWithSidebar(
-                                        # 
+                                        #
                                         #            headerPanel("MultiChull different complexities"),
-                                        # 
+                                        #
                                         #            sidebarPanel(
-                                        # 
+                                        #
                                         #              selectInput('cominput', 'Complexity', choices = '')
-                                        # 
+                                        #
                                         #            ),
-                                        # 
+                                        #
                                         #            mainPanel(
                                         #              plotly::plotlyOutput("plotlycom")
                                         #            )
                                         #          )
-                                        # 
+                                        #
                                         # ) # end tabPanel plotly
                                       )#end tabset
                                     )# end mainpanel
