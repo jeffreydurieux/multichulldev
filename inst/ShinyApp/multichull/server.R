@@ -58,7 +58,7 @@ shinyServer(function(input , output, session){
 
   chullstart <- eventReactive(input$stChull, {
     multichulldev::CHull(data()[,-1],input$bound,input$PercentageFit)
-    #multichulldev::CHull(data(),input$bound,input$PercentageFit)
+
   })
 
   # start multichull

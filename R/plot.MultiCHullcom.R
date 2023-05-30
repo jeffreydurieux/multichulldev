@@ -3,7 +3,6 @@
 #' @param x object of class MultiCHullcom produced by \code{\link{MultiCHull}}
 #' @param browser If FALSE plots are viewed in viewer panel. If TRUE, plots are viewed in a browser
 #' @rdname MultiCHull
-#' @return
 #' @export
 #'
 plot.MultiCHullcom <- function(x, browser=FALSE, ...){

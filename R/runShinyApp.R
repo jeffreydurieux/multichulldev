@@ -5,6 +5,7 @@
 #' @import shiny
 #' @import shinythemes
 #' @import plotly
+#' @import DT
 #'
 runShinyApp <- function() {
   appDir <- system.file("ShinyApp", "multichull", package = "multichulldev")
