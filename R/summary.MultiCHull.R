@@ -22,10 +22,10 @@ summary.MultiCHull <-
     }
     cat("\nSCREE TEST VALUES\n")
     if (n_Multi<12){
-      print(round(object$st),2)
+      print(round(object$st,2))
     } else {
       index <- which(apply(object$st,1,na.rm=T,sum)>0)
-      print(round(object$st[index,]),2)
+      print(round(object$st[index,],2))
     }
 
 

@@ -10,6 +10,6 @@ print.MultiCHull <-
       print(x$st)
     } else {
       index <- which(apply(x$st,1,na.rm=T,sum)>0)
-      print(round(x$st[index,]),2)
+      print(round(x$st[index,],2))
     }
   }
